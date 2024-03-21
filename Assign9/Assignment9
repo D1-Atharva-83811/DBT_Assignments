@@ -1,0 +1,14 @@
+mysql -u D1_83811_ATHARVA -p
+-------------------------------------------------------------------------------------------------------
+SELECT ONUM,CNAME FROM ORDERS, CUSTOMERS WHERE ORDERS.CNUM=CUSTOMERS.CNUM;
+-------------------------------------------------------------------------------------------------------
+SELECT SALESPEOPLE.SNAME,CUSTOMERS.CNAME,ORDERS.ONUM FROM ORDERS,CUSTOMERS,SALESPEOPLE
+    -> WHERE ORDERS.SNUM=SALESPEOPLE.SNUM AND ORDERS.CNUM=CUSTOMERS.CNUM;
+-------------------------------------------------------------------------------------------------------
+SELECT CNAME,SNAME,COMM FROM CUSTOMERS, SALESPEOPLE
+    -> WHERE CUSTOMERS.SNUM=SALESPEOPLE.SNUM AND SALESPEOPLE.COMM>0.12;
+-------------------------------------------------------------------------------------------------------
+SELECT ROUND(AMT*COMM,2) "COMMISSION",ONUM FROM SALESPEOPLE,CUSTOMERS,ORDERS
+    -> WHERE SALESPEOPLE.SNUM=ORDERS.SNUM AND CUSTOMERS.CNUM=ORDERS.CNUM AND RATING>100
+    -> ORDER BY ONUM;
+-------------------------------------------------------------------------------------------------------
