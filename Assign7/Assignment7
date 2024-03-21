@@ -1,0 +1,20 @@
+mysql -u D1_83811_ATHARVA -p
+-------------------------------------------------------------------------------------------------------
+SELECT COUNT(*) FROM ORDERS
+    -> WHERE ODATE LIKE '%10-03'; -------------------------------------------------------------------------------------------------------
+SELECT COUNT(DISTINCT CITY) FROM CUSTOMERS;
+-------------------------------------------------------------------------------------------------------
+SELECT CUSTOMERS.CNUM, MIN(AMT) "MINIMUM ORDER" FROM ORDERS, CUSTOMERS
+    -> WHERE CUSTOMERS.CNUM = ORDERS.CNUM
+    -> GROUP BY CUSTOMERS.CNUM
+    -> ORDER BY CUSTOMERS.CNUM;
+-------------------------------------------------------------------------------------------------------
+SELECT MIN(CNAME) FROM CUSTOMERS
+    -> WHERE CNAME LIKE 'G%';
+-------------------------------------------------------------------------------------------------------
+SELECT CITY, MAX(RATING) FROM CUSTOMERS
+    -> GROUP BY CITY
+    -> ORDER BY CITY;
+-------------------------------------------------------------------------------------------------------
+SELECT ODATE, COUNT(DISTINCT SNUM) FROM ORDERS GROUP BY ODATE;
+-------------------------------------------------------------------------------------------------------
