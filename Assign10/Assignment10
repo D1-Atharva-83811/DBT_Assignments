@@ -1,0 +1,11 @@
+mysql -u D1_83811_ATHARVA -p
+-------------------------------------------------------------------------------------------------------
+SELECT A.SNAME,B.CITY FROM SALESPEOPLE A, SALESPEOPLE B
+WHERE A.CITY=B.CITY
+AND A.SNAME!=B.SNAME;
+-------------------------------------------------------------------------------------------------------
+SELECT CNAME,CITY FROM CUSTOMERS
+WHERE RATING=
+(SELECT RATING FROM CUSTOMERS
+WHERE CNAME='Hoffman');
+-------------------------------------------------------------------------------------------------------
