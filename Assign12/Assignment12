@@ -1,0 +1,19 @@
+SELECT * FROM CUSTOMERS WHERE RATING>=ANY(SELECT RATING FROM CUSTOMERS,SALESPEOPLE WHERE SALESPEOPLE.SNUM=CUSTOMERS.SNUM AND SNAME='Serres');
+-------------------------------------------------------------------------------------------------------
+SELECT SNAME, SALESPEOPLE.CITY FROM CUSTOMERS,SALESPEOPLE 
+WHERE SALESPEOPLE.SNUM=CUSTOMERS.SNUM 
+AND SALESPEOPLE.CITY!=ALL
+(SELECT DISTINCT CITY FROM CUSTOMERS);
+-------------------------------------------------------------------------------------------------------
+SELECT ONUM,AMT FROM ORDERS 
+WHERE AMT>ALL
+(SELECT AMT FROM ORDERS WHERE CNUM=ANY
+(SELECT CNUM FROM CUSTOMERS 
+WHERE CITY='London'));
+-------------------------------------------------------------------------------------------------------
+SELECT ONUM,AMT FROM ORDERS 
+WHERE AMT>
+(SELECT MAX(AMT) FROM ORDERS WHERE CNUM=ANY
+(SELECT CNUM FROM CUSTOMERS 
+WHERE CITY='London'));
+-------------------------------------------------------------------------------------------------------
