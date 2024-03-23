@@ -1,0 +1,16 @@
+INSERT INTO SALESPEOPLE(CITY,SNAME,COMM,SNUM) 
+VALUES
+('San Jose','Blanco',NULL,'1100');
+-------------------------------------------------------------------------------------------------------
+DELETE FROM ORDERS 
+WHERE CNUM=
+(SELECT CNUM FROM CUSTOMERS
+WHERE CNAME LIKE 'Clemens');
+-------------------------------------------------------------------------------------------------------
+UPDATE CUSTOMERS
+SET RATING = RATING + 100
+WHERE CITY LIKE 'Rome';
+-------------------------------------------------------------------------------------------------------
+UPDATE CUSTOMERS
+SET SNUM =(SELECT SNUM FROM SALESPEOPLE WHERE SNAME LIKE 'Motika')
+WHERE SNUM = (SELECT SNUM FROM SALESPEOPLE WHERE SNAME LIKE 'Serres');
